@@ -95,7 +95,15 @@ namespace CustomCollections
 
         public T Remove(T obj)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i <= GetSize(); ++i)
+            {
+                if(obj.Equals(buffer[i]))
+                {
+                    return Remove(i);
+                }
+            }
+
+            throw new ArgumentException("Object not found in array");
         }
 
         public bool MoveNext()
