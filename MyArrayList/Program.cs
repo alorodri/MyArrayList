@@ -26,7 +26,7 @@ namespace MyArrayList
 
             Console.WriteLine($"We are deleting {testcopy.Remove(2)} value");
 
-            Console.WriteLine($"ArrayList has {testcopy.GetSize()} values and the 39º value is {testcopy.Get(38)}. Buffer size is {testcopy.Capacity()}");
+            Console.WriteLine($"ArrayList has {testcopy.Size} values and the 39º value is {testcopy.Get(38)}. Buffer size is {testcopy.Capacity}");
 
             foreach (int value in testcopy)
             {

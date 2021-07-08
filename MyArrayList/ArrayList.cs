@@ -22,11 +22,11 @@ namespace CustomCollections
 
             if (used == buffer.Length)
             {
-                T[] swap = new T[GetSize()];
+                T[] swap = new T[Size];
                 swap = buffer;
 
-                buffer = new T[GetSize() * 2];
-                for (int i = 0; i < GetSize(); ++i)
+                buffer = new T[Size * 2];
+                for (int i = 0; i < Size; ++i)
                 {
                     buffer[i] = swap[i];
                 }
@@ -40,7 +40,7 @@ namespace CustomCollections
 
         public void AddAll(IList<T> objs)
         {
-            for (int i = 0; i < objs.GetSize(); ++i)
+            for (int i = 0; i < objs.Size; ++i)
             {
                 Add(objs.Get(i));
             }
@@ -56,11 +56,11 @@ namespace CustomCollections
             return buffer[index];
         }
 
-        public int Capacity() => buffer.Length;
+        public int Capacity => buffer.Length;
 
-        public int GetSize() => used;
+        public int Size => used;
 
-        public bool IsEmpty() => used == 0;
+        public bool Empty => used == 0;
 
         public void Reserve(int size)
         {
@@ -70,12 +70,12 @@ namespace CustomCollections
 
         public void Resize(int capacity)
         {
-            used = Math.Min(capacity, GetSize());
+            used = Math.Min(capacity, Size);
 
             T[] swap = buffer;
 
             buffer = new T[capacity];
-            for (int i = 0; i < GetSize(); ++i)
+            for (int i = 0; i < Size; ++i)
             {
                 buffer[i] = swap[i];
             }
@@ -84,7 +84,7 @@ namespace CustomCollections
         public T Remove(int index)
         {
             T obj = buffer[index];
-            for (int i = index; i <= GetSize() - index; ++i)
+            for (int i = index; i <= Size - index; ++i)
             {
                 buffer[i] = buffer[i + 1];
             }
@@ -95,7 +95,7 @@ namespace CustomCollections
 
         public T Remove(T obj)
         {
-            for (int i = 0; i <= GetSize(); ++i)
+            for (int i = 0; i <= Size; ++i)
             {
                 if(obj.Equals(buffer[i]))
                 {
@@ -108,7 +108,7 @@ namespace CustomCollections
 
         public bool MoveNext()
         {
-            if (pointer < GetSize() - 1)
+            if (pointer < Size - 1)
             {
                 ++pointer;
                 return true;
