@@ -7,6 +7,7 @@ namespace CustomCollections
     {
         int Size => Size;
         bool Empty => Empty;
+        int Capacity => Capacity;
         T Add(T obj);
         void AddAll(IList<T> objs);
         T Get(int index);
@@ -14,6 +15,5 @@ namespace CustomCollections
         T Remove(T obj);
         void Resize(int newSize);
         void Reserve(int capacity);
-        int Capacity => Capacity;
     }
 }
